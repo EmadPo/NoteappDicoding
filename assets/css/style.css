@@ -1,0 +1,374 @@
+/* HTML */
+@font-face {
+  font-family: 'ocr';
+  src: url('/2 Akhir/assets/font/ocr-abt.ttf') format('truetype');
+}
+
+body {
+  background-color: #701f5d;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(180deg, #124076 20%, #701f5d 90%);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background: #d0d0d0;
+  border-radius: 10px;
+  color: #2e366f;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: #32325d40 0px 30px 60px -12px inset,
+    #0000004d 0px 18px 36px -18px inset;
+}
+
+.animate-header {
+  text-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.4) 0px 3px 3px;
+}
+
+/* Body */
+.frame {
+  background-color: #eeeeee;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin: 20vh auto;
+  margin-bottom: 2vh !important;
+  max-width: 50%;
+  padding: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+/* form */
+.main {
+  padding: 4rem;
+}
+
+.note-form {
+  margin: 5vh 2vh 2vh 2vh;
+}
+
+.input-text,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #555;
+  color: #555;
+  font-size: 16px;
+  resize: none;
+  font-family: 'ocr', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.input-text:focus ~ .bar,
+.textarea:focus ~ .bar,
+.input-text:not(:placeholder-shown) ~ .label,
+.textarea:not(:placeholder-shown) ~ .label {
+  background: #124076;
+}
+
+.input-text:focus,
+.textarea:focus {
+  outline: none;
+}
+
+.error {
+  color: red;
+}
+
+.submit-button {
+  margin: 2vh 0 0 0;
+}
+
+.button,
+.submit-button {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.4s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #ffffff;
+  background-image: linear-gradient(
+    45deg,
+    #124076 0%,
+    #804aff 51%,
+    #124076 100%
+  );
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.button:hover,
+.submit-button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.button:active,
+.submit-button:active {
+  transform: scale(0.95);
+}
+
+.archive-link {
+  margin: 0vh 2vh 2vh 2vh;
+  display: inline-flex;
+  margin-right: 0.1vh;
+}
+
+.archive-button,
+.delete-button {
+  display: inline-block;
+  margin: 1vh 1vh 0 0;
+}
+
+.note-list {
+  margin: 2vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.note-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+/* footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 2vh 0 2vh 0;
+  margin-bottom: 2vh;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .frame {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding: 2rem;
+  }
+
+  .note-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .frame {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .frame {
+    max-width: 90%;
+  }
+}
+
+/* loading */
+.note-list {
+  position: relative;
+}
+
+.loading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(39, 38, 38, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.loader {
+  --w: 10ch;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  letter-spacing: calc(10 * var(--w));
+  width: var(--w);
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffffff00;
+  animation: l18 3s infinite;
+  z-index: 2000;
+}
+
+.loader:before {
+  content: 'Loading...';
+}
+
+@keyframes l18 {
+  0% {
+    text-shadow: calc(9 * var(--w)) 0 #d0d0d0, calc(-1 * var(--w)) 0 #d0d0d0,
+      calc(-11 * var(--w)) 0 #d0d0d0, calc(-21 * var(--w)) 0 #d0d0d0,
+      calc(-31 * var(--w)) 0 #d0d0d0, calc(-41 * var(--w)) 0 #d0d0d0,
+      calc(-51 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  4% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-1 * var(--w)) 0 #d0d0d0,
+      calc(-11 * var(--w)) 0 #d0d0d0, calc(-21 * var(--w)) 0 #d0d0d0,
+      calc(-31 * var(--w)) 0 #d0d0d0, calc(-41 * var(--w)) 0 #d0d0d0,
+      calc(-51 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  8% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-11 * var(--w)) 0 #d0d0d0, calc(-21 * var(--w)) 0 #d0d0d0,
+      calc(-31 * var(--w)) 0 #d0d0d0, calc(-41 * var(--w)) 0 #d0d0d0,
+      calc(-51 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  12% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-21 * var(--w)) 0 #d0d0d0,
+      calc(-31 * var(--w)) 0 #d0d0d0, calc(-41 * var(--w)) 0 #d0d0d0,
+      calc(-51 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  16% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-31 * var(--w)) 0 #d0d0d0, calc(-41 * var(--w)) 0 #d0d0d0,
+      calc(-51 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  20% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-41 * var(--w)) 0 #d0d0d0,
+      calc(-51 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  24% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-51 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  28% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-61 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  32% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-71 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  36% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-81 * var(--w)) 0 #d0d0d0;
+  }
+  40%,
+  60% {
+    text-shadow: calc(0 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  64% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-10 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  68% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-20 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  72% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-30 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  76% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-39 * var(--w)) 0 #d0d0d0,
+      calc(-40 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  80% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-39 * var(--w)) 0 #d0d0d0,
+      calc(-49 * var(--w)) 0 #d0d0d0, calc(-50 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  84% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-39 * var(--w)) 0 #d0d0d0,
+      calc(-49 * var(--w)) 0 #d0d0d0, calc(-59 * var(--w)) 0 #d0d0d0,
+      calc(-60 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  88% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-39 * var(--w)) 0 #d0d0d0,
+      calc(-49 * var(--w)) 0 #d0d0d0, calc(-59 * var(--w)) 0 #d0d0d0,
+      calc(-69 * var(--w)) 0 #d0d0d0, calc(-70 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  92% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-39 * var(--w)) 0 #d0d0d0,
+      calc(-49 * var(--w)) 0 #d0d0d0, calc(-59 * var(--w)) 0 #d0d0d0,
+      calc(-69 * var(--w)) 0 #d0d0d0, calc(-79 * var(--w)) 0 #d0d0d0,
+      calc(-80 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  96% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-39 * var(--w)) 0 #d0d0d0,
+      calc(-49 * var(--w)) 0 #d0d0d0, calc(-59 * var(--w)) 0 #d0d0d0,
+      calc(-69 * var(--w)) 0 #d0d0d0, calc(-79 * var(--w)) 0 #d0d0d0,
+      calc(-89 * var(--w)) 0 #d0d0d0, calc(-90 * var(--w)) 0 #d0d0d0;
+  }
+  100% {
+    text-shadow: calc(-9 * var(--w)) 0 #d0d0d0, calc(-19 * var(--w)) 0 #d0d0d0,
+      calc(-29 * var(--w)) 0 #d0d0d0, calc(-39 * var(--w)) 0 #d0d0d0,
+      calc(-49 * var(--w)) 0 #d0d0d0, calc(-59 * var(--w)) 0 #d0d0d0,
+      calc(-69 * var(--w)) 0 #d0d0d0, calc(-79 * var(--w)) 0 #d0d0d0,
+      calc(-89 * var(--w)) 0 #d0d0d0, calc(-99 * var(--w)) 0 #d0d0d0;
+  }
+}

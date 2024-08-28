@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+
+    <!-- assets -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- animate -->
+  </head>
+  <body>
+    <!-- loading -->
+    <loading-screen></loading-screen>
+
+    <!-- header -->
+    <div class="frame">
+      <app-header></app-header>
+
+      <!-- body -->
+      <main>
+        <add-note-form></add-note-form>
+        <archive-link></archive-link>
+        <note-list></note-list>
+      </main>
+
+      <!-- footer -->
+    </div>
+    <app-footer></app-footer>
+
+    <!-- animate -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- assets -->
+    <script src="/../assets/js/custome-elements.js"></script>
+    <script src="/../assets/js/script.js" defer></script>
+    <script src="/../assets/js/animation.js"></script>
+  </body>
+</html>
